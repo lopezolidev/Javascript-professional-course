@@ -15,4 +15,4 @@ class MediaPlayer{
 }
 
 export default MediaPlayer;
-//exporting a class, modularizing the code
+//exporting a class, modularizing the code 
