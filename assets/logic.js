@@ -1,12 +1,16 @@
 import MediaPlayer from "./mediaplayer.js"
 //importing a class from another file in the same folder, modularizing the code, ↑ maintainability 
+import AutoPlay from "./plugins/autoplay.js"
 
 //selecting elements from DOM
 const video = document.querySelector("video");
 const button = document.querySelector("button");
 
 //instancing the object
-const player = new MediaPlayer(video);
+const player = new MediaPlayer({media: video, plugins: [
+    new AutoPlay().run(video), 
+]});
+//passing parameters of the MediaPlayer class as an object, attributes as video and its plugins         
 
 //adding click event to the button with object method
 button.addEventListener('click', () => {

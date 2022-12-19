@@ -1,5 +1,9 @@
 
 ### Node ###
+
+# media
+*.mp4
+
 # Logs
 logs
 *.log

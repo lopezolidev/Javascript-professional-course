@@ -1,8 +1,8 @@
-
 //creating class for MediaPlayer
 class MediaPlayer{
-    constructor(media){
-        this.media = media
+    constructor({media, plugins = []}){ //applying RORO
+        this.media = media;
+        this.plugins = plugins;
     }
     playPauseVideo(){
         if(this.media.paused){
@@ -11,7 +11,12 @@ class MediaPlayer{
             this.media.pause();
         }
     }
-
+    _initPlugins(){
+        this.plugins.forEach(plugin => {
+            plugin.run(this.media); //method defined in AutoPlay class
+        })
+    }
+    //TODO: add muting button
 }
 
 export default MediaPlayer;
