@@ -2,9 +2,11 @@ import MediaPlayer from "./mediaplayer.js"
 //importing a class from another file in the same folder, modularizing the code, ↑ maintainability 
 import AutoPlay from "./plugins/autoplay.js"
 
+
 //selecting elements from DOM
 const video = document.querySelector("video");
 const button = document.querySelector("button");
+const muteButton = document.querySelector(".muting-button")
 
 //instancing the object
 const player = new MediaPlayer({media: video, plugins: [
@@ -17,3 +19,8 @@ button.addEventListener('click', () => {
     //calling the method when event of click triggers the function
     player.playPauseVideo()
 });
+
+//creating muting button
+muteButton.addEventListener('click', () => {
+    player.muteUnmute();
+})

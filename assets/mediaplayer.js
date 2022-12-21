@@ -16,7 +16,15 @@ class MediaPlayer{
             plugin.run(this.media); //method defined in AutoPlay class
         })
     }
-    //TODO: add muting button
+    //Muting button
+    muteUnmute(){
+        if(this.media.muted){ //unmuting
+            this.media.muted = false;
+        } else { //muting
+            this.media.muted = true;
+        }
+    }
+    
 }
 
 export default MediaPlayer;
