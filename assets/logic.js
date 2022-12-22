@@ -10,7 +10,7 @@ const muteButton = document.querySelector(".muting-button")
 
 //instancing the object
 const player = new MediaPlayer({media: video, plugins: [
-    new AutoPlay().run(video), 
+    new AutoPlay(), 
 ]});
 //passing parameters of the MediaPlayer class as an object, attributes as video and its plugins         
 
@@ -24,3 +24,5 @@ button.addEventListener('click', () => {
 muteButton.addEventListener('click', () => {
     player.muteUnmute();
 })
+
+player._initPlugins()

@@ -12,8 +12,23 @@ class MediaPlayer{
         }
     }
     _initPlugins(){
+        const player = {
+            playPause: () => this.playPauseVideo(), //referencing the object of the video player itself, now I can use any of the functions defined in the class and don't rewrite them
+
+            // pause: () => this.media.pause(),
+            
+            media: this.media,
+            get muted(){
+                return this.media.muted
+            },
+            set muted(value){
+                this.media.muted = value;
+            }
+        }
+        //to use getters and setters we create an object
+        console.log(player)
         this.plugins.forEach(plugin => {
-            plugin.run(this.media); //method defined in AutoPlay class
+            plugin.run(player); //method defined in AutoPlay class
         })
     }
     //Muting button
