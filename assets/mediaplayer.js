@@ -4,19 +4,38 @@ class MediaPlayer{
         this.media = media;
         this.plugins = plugins;
     }
-    playPauseVideo(){
+    // playPauseVideo(){
+    //     if(this.media.paused){
+    //         this.media.play();
+    //     } else {
+    //         this.media.pause();
+    //     }
+    // }
+    play(){
+        this.media.play();
+    }
+    pause(){
+        this.media.pause();
+    }
+    toggleButton(){
         if(this.media.paused){
-            this.media.play();
-        } else {
-            this.media.pause();
+            this.play();
+        } else{
+            this.pause();
         }
     }
     _initPlugins(){
         const player = {
-            playPause: () => this.playPauseVideo(), //referencing the object of the video player itself, now I can use any of the functions defined in the class and don't rewrite them
+            // playPause: () => this.playPauseVideo(), //referencing the object of the video player itself, now I can use any of the functions defined in the class and don't rewrite them
+
 
             // pause: () => this.media.pause(),
-            
+            play(){
+                this.media.play();
+            },
+            pause(){
+                this.media.pause();
+            },
             media: this.media,
             get muted(){
                 return this.media.muted
@@ -26,7 +45,7 @@ class MediaPlayer{
             }
         }
         //to use getters and setters we create an object
-        console.log(player)
+
         this.plugins.forEach(plugin => {
             plugin.run(player); //method defined in AutoPlay class
         })
