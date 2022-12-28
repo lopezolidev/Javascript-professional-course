@@ -1,6 +1,10 @@
 
 ### Node ###
 
+# cache and dist
+.cache
+dist
+
 # media
 *.mp4
 
